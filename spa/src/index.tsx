@@ -1,4 +1,5 @@
 import React from "react";
 import { render } from "react-dom";
+import Game from "./game";
 
-render(<div>Hello world</div>, document.getElementById("root"));
+render(<Game />, document.getElementById("root"));
