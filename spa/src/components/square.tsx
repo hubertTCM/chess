@@ -17,14 +17,14 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Square = (props: SquareProps) => {
-  const { position } = props;
+  const { position, role } = props;
   const { row, column } = position;
   const isDark = (row + column) % 2 == 0;
   const classes = useStyles();
   return (
-    <Button
-      className={isDark ? classes.dark : classes.light}
-    >{`row:${position.row} column:${position.column}`}</Button>
+    <Button className={isDark ? classes.dark : classes.light}>
+      {role && `${role.player}-${role.piece}`}
+    </Button>
   );
 };
 
