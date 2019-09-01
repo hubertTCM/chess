@@ -5,6 +5,7 @@ import { Button, makeStyles } from "@material-ui/core";
 export type SquareProps = {
   role?: Role;
   position: Position;
+  className: string;
 };
 
 const useStyles = makeStyles(theme => ({
@@ -17,12 +18,15 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Square = (props: SquareProps) => {
-  const { position, role } = props;
+  const { position, role, className, ...rest } = props;
   const { row, column } = position;
   const isDark = (row + column) % 2 == 0;
   const classes = useStyles();
   return (
-    <Button className={isDark ? classes.dark : classes.light}>
+    <Button
+      {...rest}
+      className={[isDark ? classes.dark : classes.light, className].join(" ")}
+    >
       {role && `${role.player}-${role.piece}`}
     </Button>
   );

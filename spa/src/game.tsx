@@ -6,7 +6,10 @@ import Square from "./components/square";
 
 const useStyles = makeStyles(theme => ({
   root: { display: "flex", flexDirection: "column-reverse" },
-  row: {}
+  row: { display: "flex" },
+  item: {
+    flex: "1 1 0"
+  }
 }));
 
 const options: PositionOption[] = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -83,8 +86,10 @@ const Game = () => {
               );
               return (
                 <Square
+                  className={classes.item}
                   position={{ row, column }}
                   role={liveRole && liveRole.role}
+                  key={`square-${row}-${column}`}
                 ></Square>
               );
             })}
