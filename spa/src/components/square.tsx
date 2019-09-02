@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import { Position, Role } from "../type";
 import { Button, makeStyles } from "@material-ui/core";
 
@@ -25,7 +26,7 @@ const Square = (props: SquareProps) => {
   return (
     <Button
       {...rest}
-      className={[isDark ? classes.dark : classes.light, className].join(" ")}
+      className={clsx(isDark ? classes.dark : classes.light, className)}
     >
       {role && `${role.player}-${role.piece}`}
     </Button>

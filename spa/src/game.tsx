@@ -5,8 +5,20 @@ import { makeStyles } from "@material-ui/core";
 import Square from "./components/square";
 
 const useStyles = makeStyles(theme => ({
-  root: { display: "flex", flexDirection: "column-reverse" },
-  row: { display: "flex" },
+  root: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    height: "100%"
+  },
+  container: {
+    display: "flex",
+    flexDirection: "column-reverse",
+    width: "80%",
+    height: "80%"
+  },
+  row: { display: "flex", flex: "1 1 0" },
   item: {
     flex: "1 1 0"
   }
@@ -77,25 +89,27 @@ const Game = () => {
   const [liveRoles] = useState<LiveRole[]>(initLiveRoles());
   return (
     <div className={classes.root}>
-      {options.map(row => {
-        return (
-          <div className={classes.row}>
-            {options.map(column => {
-              const liveRole = liveRoles.find(
-                x => x.position.row === row && x.position.column === column
-              );
-              return (
-                <Square
-                  className={classes.item}
-                  position={{ row, column }}
-                  role={liveRole && liveRole.role}
-                  key={`square-${row}-${column}`}
-                ></Square>
-              );
-            })}
-          </div>
-        );
-      })}
+      <div className={classes.container}>
+        {options.map(row => {
+          return (
+            <div className={classes.row}>
+              {options.map(column => {
+                const liveRole = liveRoles.find(
+                  x => x.position.row === row && x.position.column === column
+                );
+                return (
+                  <Square
+                    className={classes.item}
+                    position={{ row, column }}
+                    role={liveRole && liveRole.role}
+                    key={`square-${row}-${column}`}
+                  ></Square>
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
