@@ -22,6 +22,7 @@
     "editor.tabSize": 4,
     // Insert spaces when pressing Tab.
     "editor.insertSpaces": true,
+    "editor.formatOnSave": true,
     // When opening a file, `editor.tabSize` and `editor.insertSpaces` will be detected based on the file contents.
     "editor.detectIndentation": false,
     "java.dependency.packagePresentation": "flat",
