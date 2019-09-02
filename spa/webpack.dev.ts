@@ -15,6 +15,7 @@ const config: Configuration = merge(common, {
     path: path.resolve(__dirname, "./dist")
     //path: "../src/main/resources/static"
   },
+  devtool: "inline-cheap-module-source-map",
   devServer: {
     contentBase: "./src",
     historyApiFallback: true,
