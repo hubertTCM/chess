@@ -29,6 +29,7 @@ const Square = (props: SquareProps) => {
       className={clsx(isDark ? classes.dark : classes.light, className)}
     >
       {role && `${role.player}-${role.piece}`}
+      {!role && ""}
     </Button>
   );
 };

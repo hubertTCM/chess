@@ -92,7 +92,7 @@ const Game = () => {
       <div className={classes.container}>
         {options.map(row => {
           return (
-            <div className={classes.row}>
+            <div className={classes.row} key={`row-${row}`}>
               {options.map(column => {
                 const liveRole = liveRoles.find(
                   x => x.position.row === row && x.position.column === column
@@ -103,7 +103,7 @@ const Game = () => {
                     position={{ row, column }}
                     role={liveRole && liveRole.role}
                     key={`square-${row}-${column}`}
-                  ></Square>
+                  />
                 );
               })}
             </div>
